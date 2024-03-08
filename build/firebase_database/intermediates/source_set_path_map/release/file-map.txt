@@ -1,0 +1,16 @@
+io.flutter.plugins.firebase.database.firebase_database-jetified-play-services-basement-18.1.0-0 /Users/rajune/.gradle/caches/transforms-3/6d65d27954f43adfb4f203eee921460d/transformed/jetified-play-services-basement-18.1.0/res
+io.flutter.plugins.firebase.database.firebase_database-core-1.6.0-1 /Users/rajune/.gradle/caches/transforms-3/791f0b4d1a029b6abf5f93fb4c62818b/transformed/core-1.6.0/res
+io.flutter.plugins.firebase.database.firebase_database-jetified-window-1.0.0-beta04-2 /Users/rajune/.gradle/caches/transforms-3/82bc019d4fb57611b6701e4aa6397281/transformed/jetified-window-1.0.0-beta04/res
+io.flutter.plugins.firebase.database.firebase_database-jetified-firebase-common-20.3.3-3 /Users/rajune/.gradle/caches/transforms-3/82f1e55ebc90e24a1a823bb0809aa68c/transformed/jetified-firebase-common-20.3.3/res
+io.flutter.plugins.firebase.database.firebase_database-jetified-play-services-base-18.1.0-4 /Users/rajune/.gradle/caches/transforms-3/8f494865c0b8ae1b19d55368193698d0/transformed/jetified-play-services-base-18.1.0/res
+io.flutter.plugins.firebase.database.firebase_database-jetified-window-java-1.0.0-beta04-5 /Users/rajune/.gradle/caches/transforms-3/b10e9e7690980c8f67a40933106790db/transformed/jetified-window-java-1.0.0-beta04/res
+io.flutter.plugins.firebase.database.firebase_database-jetified-annotation-experimental-1.1.0-6 /Users/rajune/.gradle/caches/transforms-3/d04c6b892c56f167f7417995e52fc6f8/transformed/jetified-annotation-experimental-1.1.0/res
+io.flutter.plugins.firebase.database.firebase_database-main-7 /Users/rajune/.pub-cache/hosted/pub.dev/firebase_database-10.2.4/android/src/main/res
+io.flutter.plugins.firebase.database.firebase_database-release-8 /Users/rajune/.pub-cache/hosted/pub.dev/firebase_database-10.2.4/android/src/release/res
+io.flutter.plugins.firebase.database.firebase_database-packaged_res-9 /Users/rajune/Desktop/Freelance/partner/build/firebase_core/intermediates/packaged_res/release
+io.flutter.plugins.firebase.database.firebase_database-pngs-10 /Users/rajune/Desktop/Freelance/partner/build/firebase_database/generated/res/pngs/release
+io.flutter.plugins.firebase.database.firebase_database-resValues-11 /Users/rajune/Desktop/Freelance/partner/build/firebase_database/generated/res/resValues/release
+io.flutter.plugins.firebase.database.firebase_database-rs-12 /Users/rajune/Desktop/Freelance/partner/build/firebase_database/generated/res/rs/release
+io.flutter.plugins.firebase.database.firebase_database-mergeReleaseResources-13 /Users/rajune/Desktop/Freelance/partner/build/firebase_database/intermediates/incremental/release/mergeReleaseResources/merged.dir
+io.flutter.plugins.firebase.database.firebase_database-mergeReleaseResources-14 /Users/rajune/Desktop/Freelance/partner/build/firebase_database/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+io.flutter.plugins.firebase.database.firebase_database-merged_res-15 /Users/rajune/Desktop/Freelance/partner/build/firebase_database/intermediates/merged_res/release

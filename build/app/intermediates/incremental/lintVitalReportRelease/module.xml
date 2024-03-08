@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="/Users/rajune/Desktop/Freelance/partner/android/app"
+    name=":app"
+    type="APP"
+    maven="android:app:"
+    gradle="7.3.0"
+    buildFolder="/Users/rajune/Desktop/Freelance/partner/build/app"
+    bootClassPath="/Users/rajune/Library/Android/sdk/platforms/android-33/android.jar:/Users/rajune/Library/Android/sdk/build-tools/30.0.3/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-33">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>
