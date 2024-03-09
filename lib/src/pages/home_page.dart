@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:partner/Utils/Colors.dart';
+import 'package:partner/src/pages/connect_partner_page.dart';
+import 'package:partner/src/providers/connect_partner_provider.dart';
 import 'package:partner/src/widgets/common_widgets.dart';
 import 'package:partner/src/widgets/custom_button.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -47,7 +50,17 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: CustomButton(
               bgColor: AppThemeColor.pureBlackColor,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ChangeNotifierProvider(
+                      create: (_) => ConnectPartnerProvider(),
+                      child: const ConnectPartnerPage(),
+                    ),
+                  ),
+                );
+              },
               title: "Connect with partner",
               radius: 0,
             ),

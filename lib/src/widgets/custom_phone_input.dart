@@ -6,21 +6,26 @@ class CustomPhoneInput extends StatelessWidget {
   const CustomPhoneInput({
     super.key,
     this.phoneCtrl,
+    this.title = "Phone Number",
   });
   final TextEditingController? phoneCtrl;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(bottom: 8.0),
-          child: Text(
-            "Phone Number",
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: AppThemeColor.pureBlackColor,
+        Visibility(
+          visible: title.isNotEmpty,
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Text(
+              title,
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+                color: AppThemeColor.pureBlackColor,
+              ),
             ),
           ),
         ),

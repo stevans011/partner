@@ -11,6 +11,7 @@ class CustomButton extends StatelessWidget {
     this.textStyle,
     required this.title,
     this.radius,
+    this.isLoading = false,
   });
 
   final double? height;
@@ -20,6 +21,7 @@ class CustomButton extends StatelessWidget {
   final TextStyle? textStyle;
   final String title;
   final double? radius;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -34,16 +36,24 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(radius ?? 6),
           ),
         ),
-        onPressed: onTap,
-        child: Text(
-          title,
-          style: textStyle ??
-              const TextStyle(
-                color: AppThemeColor.pureWhiteColor,
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
+        onPressed: isLoading ? null : onTap,
+        child: isLoading
+            ? const SizedBox(
+                height: 24,
+                width: 24,
+                child: CircularProgressIndicator(
+                  color: AppThemeColor.pureWhiteColor,
+                ),
+              )
+            : Text(
+                title,
+                style: textStyle ??
+                    const TextStyle(
+                      color: AppThemeColor.pureWhiteColor,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                    ),
               ),
-        ),
       ),
     );
   }
