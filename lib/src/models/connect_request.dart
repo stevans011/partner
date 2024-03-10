@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:partner/src/models/partner.dart';
 import 'package:partner/src/utils/enums.dart';
 
 class ConnectRequest extends Equatable {
@@ -9,6 +10,8 @@ class ConnectRequest extends Equatable {
   final String receiverId;
   final RequestStatus status;
   final Timestamp createdAt;
+  final Partner? sender;
+  final Partner? receiver;
 
   const ConnectRequest({
     required this.id,
@@ -16,6 +19,8 @@ class ConnectRequest extends Equatable {
     required this.createdAt,
     required this.receiverId,
     required this.status,
+    this.sender,
+    this.receiver,
   });
 
   factory ConnectRequest.fromJson(Map<String, dynamic> json) => ConnectRequest(
@@ -35,6 +40,8 @@ class ConnectRequest extends Equatable {
     String? receiverId,
     RequestStatus? status,
     Timestamp? createdAt,
+    Partner? sender,
+    Partner? receiver,
   }) {
     return ConnectRequest(
       id: id ?? this.id,
@@ -42,6 +49,8 @@ class ConnectRequest extends Equatable {
       receiverId: receiverId ?? this.receiverId,
       status: status ?? this.status,
       createdAt: createdAt ?? this.createdAt,
+      sender: sender ?? this.sender,
+      receiver: receiver ?? this.receiver,
     );
   }
 }

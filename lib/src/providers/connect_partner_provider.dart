@@ -14,6 +14,7 @@ class ConnectPartnerProvider extends ChangeNotifier {
   //Variables
   ActionState searchState = ActionState();
   ActionState sendRequestState = ActionState();
+  ActionState getConnectRequestsState = ActionState();
 
   //Functions
   void searchPartner(String phone) async {
@@ -90,6 +91,41 @@ class ConnectPartnerProvider extends ChangeNotifier {
       notifyListeners();
     } catch (e) {
       sendRequestState = sendRequestState.copyWith(
+        state: StateEnum.failed,
+        errorMessage: "Something went wrong",
+      );
+      notifyListeners();
+    }
+  }
+
+  void getConnectRequestsForMe() async {
+    final userId = currentUser?.uid;
+    getConnectRequestsState =
+        getConnectRequestsState.copyWith(state: StateEnum.loading);
+    notifyListeners();
+
+    try {
+      final requestsQuery = await _firestore
+          .collection("requests")
+          .where("receiverId", isEqualTo: userId)
+          .get();
+      final List<ConnectRequest> requests = List<ConnectRequest>.from(
+          requestsQuery.docs.map((e) => ConnectRequest.fromJson(e.data())));
+      List<Partner> partners = [];
+      for (var request in requests) {
+        final partnerQuery =
+            await _firestore.collection("users").doc(request.senderId).get();
+        if (partnerQuery.exists) {
+          Partner partner = Partner.fromJson(partnerQuery.data()!);
+          partners.add(partner);
+        }
+      }
+      getConnectRequestsState = getConnectRequestsState.copyWith(
+        state: StateEnum.success,
+        successData: partners,
+      );
+    } catch (e) {
+      getConnectRequestsState = getConnectRequestsState.copyWith(
         state: StateEnum.failed,
         errorMessage: "Something went wrong",
       );

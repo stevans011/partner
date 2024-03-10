@@ -2,7 +2,9 @@ enum RequestStatus { initiate, accepted, rejected }
 
 extension RequestStatusX on RequestStatus {
   bool get isInitiate => this == RequestStatus.initiate;
+
   bool get isAccepted => this == RequestStatus.accepted;
+
   bool get isRejected => this == RequestStatus.rejected;
 
   String get stringName {
@@ -10,8 +12,10 @@ extension RequestStatusX on RequestStatus {
       return "Accepted";
     } else if (isRejected) {
       return 'Rejected';
-    } else {
+    } else if (isInitiate) {
       return "Initiated";
+    } else {
+      return "";
     }
   }
 }

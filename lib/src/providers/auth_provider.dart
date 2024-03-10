@@ -57,8 +57,8 @@ class AuthProvider extends ChangeNotifier {
     verifyPhoneLoading = true;
     notifyListeners();
     await FirebaseAuth.instance.verifyPhoneNumber(
-      // phoneNumber: "+61$phone",
-      phoneNumber: "+977$phone",
+      phoneNumber: "+61$phone",
+      // phoneNumber: "+977$phone",
       verificationCompleted: (credential) {},
       codeSent: (verificationId, resendingToken) {
         verifyPhoneLoading = false;

@@ -22,6 +22,11 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     context.read<AuthProvider>().addListener(() {
       final authProvider = context.read<AuthProvider>();
       if (authProvider.verifyPhoneLoading) {

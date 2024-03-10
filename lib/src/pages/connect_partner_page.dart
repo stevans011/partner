@@ -72,9 +72,10 @@ class _ConnectPartnerPageState extends State<ConnectPartnerPage> {
 
   Widget _partnerCard() {
     final connectProvider = context.watch<ConnectPartnerProvider>();
+
     if (connectProvider.searchState.state.isSuccess) {
       Partner partner = connectProvider.searchState.successData as Partner;
-      ActionState requestState = connectProvider.sendRequestState;
+
       return Container(
         decoration: BoxDecoration(
           color: AppThemeColor.pureWhiteColor,
@@ -102,38 +103,47 @@ class _ConnectPartnerPageState extends State<ConnectPartnerPage> {
           ),
           title: Text(partner.username),
           subtitle: Text(partner.phone),
-          trailing: GestureDetector(
-            onTap: () {
-              //Check connect request too
-              if (!connectProvider.sendRequestState.state.isLoading &&
-                  partner.connectRequest == null) {
-                connectProvider.sendConnectRequest(partner.id);
-              }
-            },
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: connectProvider.searchState.state.isLoading
-                    ? AppThemeColor.grayColor
-                    : AppThemeColor.darkBlueColor,
-                borderRadius: BorderRadius.circular(24),
-              ),
-              child: Text(
-                requestState.state.isSuccess || partner.connectRequest != null
-                    ? "Sent"
-                    : "Send Invitation",
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: AppThemeColor.pureWhiteColor,
-                      fontSize: 11,
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-            ),
-          ),
+          trailing: _sendInvitationButton(connectProvider),
         ),
       );
     } else {
       return const SizedBox.shrink();
     }
+  }
+
+  Widget _sendInvitationButton(ConnectPartnerProvider connectProvider) {
+    ActionState requestState = connectProvider.sendRequestState;
+    Partner partner = connectProvider.searchState.successData as Partner;
+
+    return GestureDetector(
+      onTap: () {
+        //Check connect request too
+        bool buttonEnabled = !requestState.state.isLoading &&
+            !requestState.state.isSuccess &&
+            partner.connectRequest == null;
+        if (buttonEnabled) {
+          connectProvider.sendConnectRequest(partner.id);
+        }
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: connectProvider.searchState.state.isLoading
+              ? AppThemeColor.grayColor
+              : AppThemeColor.darkBlueColor,
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: Text(
+          requestState.state.isSuccess || partner.connectRequest != null
+              ? "Sent"
+              : "Send Invitation",
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: AppThemeColor.pureWhiteColor,
+                fontSize: 11,
+                fontWeight: FontWeight.bold,
+              ),
+        ),
+      ),
+    );
   }
 }

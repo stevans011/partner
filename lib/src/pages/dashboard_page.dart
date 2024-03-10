@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:partner/Utils/Colors.dart';
 import 'package:partner/src/pages/account_page.dart';
+import 'package:partner/src/pages/connect_page.dart';
 import 'package:partner/src/pages/home_page.dart';
 import 'package:partner/src/providers/bottom_nav_provider.dart';
 import 'package:provider/provider.dart';
@@ -32,11 +33,7 @@ class _DashboardPageState extends State<DashboardPage> {
         index: context.read<BottomNavProvider>().itemIndex,
         children: [
           const HomePage(),
-          Container(
-            color: Colors.green,
-            alignment: Alignment.center,
-            child: const Text("Connect"),
-          ),
+          const ConnectPage(),
           Container(
             color: Colors.purple,
             alignment: Alignment.center,

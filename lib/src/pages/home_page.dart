@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:partner/Utils/Colors.dart';
+import 'package:partner/src/models/partner.dart';
 import 'package:partner/src/pages/connect_partner_page.dart';
 import 'package:partner/src/providers/connect_partner_provider.dart';
+import 'package:partner/src/providers/partner_provider.dart';
 import 'package:partner/src/widgets/common_widgets.dart';
 import 'package:partner/src/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
@@ -28,23 +30,26 @@ class HomePage extends StatelessWidget {
         padding:
             const EdgeInsets.only(bottom: 60, top: 12, left: 12, right: 12),
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: _infoCard(
-                  title: "Partner Connected",
-                  value: "getrajan",
+          Consumer<PartnerProvider>(builder: (context, provider, __) {
+            Partner? lastPartner = provider.lastConnectedPartner;
+            return Row(
+              children: [
+                Expanded(
+                  child: _infoCard(
+                    title: "Partner Connected",
+                    value:lastPartner?.username?? "NON CONNECTED",
+                  ),
                 ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: _infoCard(
-                  title: "No. of Quiz Finished",
-                  value: "0",
-                ),
-              )
-            ],
-          ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: _infoCard(
+                    title: "No. of Quiz Finished",
+                    value: "0",
+                  ),
+                )
+              ],
+            );
+          }),
           formSpacer(height: 100),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
